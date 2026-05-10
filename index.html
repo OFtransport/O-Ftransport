@@ -20,7 +20,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     // Vérifier que la bibliothèque est bien chargée
-    if (typeof emailjs !== "undefined") {
+    if (typeof emailjs !== "") {
       emailjs.init("dqb8ZCJRkbb1L5QRx");
     } else {
       console.error("EmailJS n'a pas été chargé.");
@@ -344,15 +344,15 @@
     <!-- Localisation Section -->
     <section id="localisation">
       <h2>Notre Localisation</h2>
-      <p>Nous sommes stratégiquement situés à Noisiel pour vous servir efficacement dans toute la région parisienne et au-delà.</p>
+      <p>Nous sommes stratégiquement situés à Bussy-Saint-Georges pour vous servir efficacement dans toute la région parisienne et au-delà.</p>
       
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.3510428247636!2d2.631056876942899!3d48.84369987133471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60f0010f823e1%3A0xd3b2e63b374c0600!2sO%26F%20transport!5e1!3m2!1sfr!2sfr!4v1714061005631!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.6146146146146!2d2.686614615745!3d48.84369987133471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e61e8f8f8f8f8f%3A0x1234567890abcdef!2s2+Rue+Camille+Claudel%2C+77600+Bussy-Saint-Georges%2C+France!5e1!3m2!1sfr!2sfr!4v1738799999999!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         
         <div class="address-overlay">
           <h3>O&F Transport</h3>
-          <p><i class="fas fa-map-marker-alt"></i> 15 Pass. du Cid, 77186 Noisiel, France</p>
-          <a href="https://www.google.com/maps/place/O%26F+transport/@48.8436999,2.6361417,609m/data=!3m3!1e3!4b1!5s0x47e60ff8e0ceef6f:0x6b78ef9f0d3b17bf!4m6!3m5!1s0x47e60f0010f823e1:0xd3b2e63b374c0600!8m2!3d48.8436999!4d2.6335668!16s%2Fg%2F11vzxwv0kl?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">
+          <p><i class="fas fa-map-marker-alt"></i> 2 Rue Camille Claudel, 77600 Bussy-Saint-Georges, France</p>
+          <a href="https://maps.app.goo.gl/PSpdPJ3vESBKagmC9" target="_blank" class="map-link">
             <i class="fas fa-location-arrow"></i> Voir sur Google Maps
           </a>
         </div>
@@ -366,7 +366,7 @@
       <div class="footer-content">
         <div class="footer-col">
           <h3>À propos de nous</h3>
-          <p>O&F Transport est une entreprise de Livraison et Déménagement Professionnel et particuliers le basée à Noisiel. Nous offrons des services complets pour particuliers et entreprises avec une équipe expérimentée et dévouée.</p>
+          <p>O&F Transport est une entreprise de Livraison et Déménagement Professionnel et particuliers basée à Bussy-Saint-Georges. Nous offrons des services complets pour particuliers et entreprises avec une équipe expérimentée et dévouée.</p>
           <div class="social-icons">
             <a href="https://www.facebook.com/p/OF-Transport-61554299171480/" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://wa.me/+33628114145" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -391,7 +391,7 @@
             <li><a href="tel:+33628114145"><i class="fas fa-phone"></i> +33 6 28 11 41 45</a></li>
             <li><a href="tel:+33769961144"><i class="fas fa-phone"></i> +33 7 69 96 11 44</a></li>
             <li><a href="mailto:oftransport@outlook.fr"><i class="fas fa-envelope"></i> oftransport@outlook.fr</a></li>
-            <li><a href="#localisation"><i class="fas fa-map-marker-alt"></i> 15 Pass. du Cid, 77186 Noisiel</a></li>
+            <li><a href="#localisation"><i class="fas fa-map-marker-alt"></i> 2 Rue Camille Claudel, 77600 Bussy-Saint-Georges</a></li>
           </ul>
         </div>
       </div>
@@ -403,41 +403,41 @@
   </footer>
 
   <script>
-   formDevis.addEventListener("submit", function(event) {
-  event.preventDefault();
+   document.addEventListener("DOMContentLoaded", function() {
+     const formDevis = document.getElementById("formDevis");
+     formDevis.addEventListener("submit", function(event) {
+       event.preventDefault();
 
-  // Masquer les anciens messages
-  document.getElementById("messageConfirmation").style.display = "none";
-  document.getElementById("messageErreur").style.display = "none";
+       // Masquer les anciens messages
+       document.getElementById("messageConfirmation").style.display = "none";
+       document.getElementById("messageErreur").style.display = "none";
 
-  // Récupération des données du formulaire
-  const formData = {
-  type_client: formDevis.type_client.value,
-  nom: formDevis.nom.value,
-  telephone: formDevis.telephone.value,
-  email: formDevis.email.value,
-  service: formDevis.service.value,
-  adresse_depart: formDevis.adresse_depart.value,
-  adresse_arrivee: formDevis.adresse_arrivee.value,
-  date: formDevis.date.value,
-  type_logement: formDevis.type_logement.value,
-  message: formDevis.message.value
-};
+       // Récupération des données du formulaire
+       const formData = {
+         type_client: formDevis.type_client.value,
+         nom: formDevis.nom.value,
+         telephone: formDevis.telephone.value,
+         email: formDevis.email.value,
+         service: formDevis.service.value,
+         adresse_depart: formDevis.adresse_depart.value,
+         adresse_arrivee: formDevis.adresse_arrivee.value,
+         date: formDevis.date.value,
+         type_logement: formDevis.type_logement.value,
+         message: formDevis.message.value
+       };
 
-
-
-  // Envoi via EmailJS
-  emailjs.send('service_wpzeva6', 'template_3a1o7wj', formData)
-    .then(function(response) {
-      console.log("Succès !", response.status, response.text);
-      document.getElementById("messageConfirmation").style.display = "block";
-      formDevis.reset(); // Réinitialise le formulaire
-    }, function(error) {
-      console.error("Erreur :", error);
-      document.getElementById("messageErreur").style.display = "block";
-    });
-});
-
+       // Envoi via EmailJS
+       emailjs.send('service_wpzeva6', 'template_3a1o7wj', formData)
+         .then(function(response) {
+           console.log("Succès !", response.status, response.text);
+           document.getElementById("messageConfirmation").style.display = "block";
+           formDevis.reset(); // Réinitialise le formulaire
+         }, function(error) {
+           console.error("Erreur :", error);
+           document.getElementById("messageErreur").style.display = "block";
+         });
+     });
+   });
   </script>
 
   <!-- JavaScript principal -->
